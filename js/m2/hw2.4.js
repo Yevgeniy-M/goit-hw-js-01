@@ -1,16 +1,22 @@
-// Предположим, у вас есть массив языков программирования из четырех элементов.
-const languages = ['C', 'C++', 'Java', 'JavaScript'];
+const formatString = function(string, maxLength = 40) {
+    if (string.length < maxLength) {
+        return string;
+    }
+    if (string.length > maxLength) { 
+        return string.slice(0, maxLength) + '...';
+    }
 
-// Следующая операция заменяет второй элемент на новый.
-languages.splice(1, 1, 'Python');
+    // } else (string.lenght > maxLength) { 
+    //     return string.slice(0, maxLength);
+    // }
+}
 
-// В массиве языков теперь все еще четыре элемента,
-// но второй элемент теперь «Python» вместо «C++».
-console.log(languages); // ["C", "Python", "Java", "JavaScript"]
+console.log(formatString('Curabitur ligula sapien, tincidunt non.'));
+// 'Curabitur ligula sapien, tincidunt non.'
 
-// Вы можете заменить один элемент на несколько элементов,
-// передав больше аргументов
-languages.splice(2, 1, 'C#', 'Swift', 'Go');
 
-console.log(languages);
-// ["C", "Python", "C#", "Swift", "Go", "JavaScript"]
+console.log(formatString('Vestibulum facilisis, purus nec pulvinar iaculis.'));
+// 'Vestibulum facilisis, purus nec pulvinar...'
+
+console.log(formatString('Vestibulum facilisis, purus nec pulvinar iaculis.', 30));
+// 'Vestibulum facilisis, purus ne...'
