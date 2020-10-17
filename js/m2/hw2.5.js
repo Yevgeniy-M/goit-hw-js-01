@@ -5,8 +5,16 @@ const checkForSpam = function (str) {
   
   // return str.includes(('spam'.toUpperCase()) || str.includes('sale'.toUpperCase()));
 
-  return str.toUppercase(str.includes('sale' || 'SPAM'));
+  // return str.toUppercase(str.includes('sale' || 'spam'));
 
+  // if (str.includes('sale')) {
+  //   return;
+  // } else if (str.includes('spam'.toUpperCase())) {
+  //   return;
+  // }
+
+  return str.toLowerCase().includes('sale') || str.toLowerCase().includes('spam');
+    
 }
 
 console.log(checkForSpam('Latest technology news')); // false
